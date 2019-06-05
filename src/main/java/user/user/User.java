@@ -1,9 +1,6 @@
 package user.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
@@ -23,6 +20,8 @@ public class User {
 
     @NotNull
     private String email;
+    private String filename;
+
     private ArrayList<String> result = new ArrayList<>();
 
     public ArrayList<String> getResult() {
@@ -33,9 +32,18 @@ public class User {
         this.result = result;
     }
 
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "user")
+    private Resume resume;
 
+    public Resume getResume() {
+        return resume;
+    }
 
-    private String filename;
+    public void setResume(Resume resume) {
+        this.resume = resume;
+    }
 
     public long getId() {
         return id;
