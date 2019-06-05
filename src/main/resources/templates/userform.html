@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="#" th:action="@{/process}" th:object="${user}" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    first name<br/> <input type="text" style="width:100%" th:field="*{firstname}"/><br/><br/>
+
+    middel name<br/><input type="text" style="width:100%" th:field ="*{middelName}"/><br/><br/>
+
+    last name<br/><input type="text" style="width:100%" th:field="*{lastname}"/><br/><br/>
+
+    pone number<br/><input type="text" style="width:100%" th:field="*{ponenumber}"></br><br/>
+
+    email <br/> <input type="text" style="width:100%" th:field ="*{email}"/><br/>
+
+    <input type="file" name="file"/>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+</body>
+</html>
